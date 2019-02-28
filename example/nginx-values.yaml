@@ -1,0 +1,11 @@
+defaultBackend:
+  enabled: false
+controller:
+  service:
+    externalTrafficPolicy: Local
+    loadBalancerIP: 127.0.0.1
+rbac:
+  create: true
+ingressShim:
+  defaultIssuerName: letsencrypt-prod
+  defaultIssuerKind: ClusterIssuer

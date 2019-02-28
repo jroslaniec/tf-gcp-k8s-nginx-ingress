@@ -1,0 +1,6 @@
+clusterIssuer:
+  spec:
+    acme:
+      email: support@example.com
+    privateKeySecretRef:
+        name: letsencrypt-prod
