@@ -48,6 +48,9 @@ resource "helm_release" "cert_manager" {
     chart     = "stable/cert-manager"
     namespace = "${lookup(var.cert_manager, "namespace", "ingress-controller")}"
     version   = "${lookup(var.cert_manager, "version", "v0.5.2")}"
+    values = [
+        "${file(lookup(var.cluster_issuer, "values", "cert-manager-values.yaml"))}"
+    ]
 }
 
 resource "helm_release" "cluster_issuer" {
